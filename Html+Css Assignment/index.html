@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Python.org</title>
+
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="top__nav">
+        <ul class="top__nav-elements">
+          <li class="active"><a href="#">Python</a></li>
+          <li><a href="#">PSF</a></li>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">PyPl</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </nav>
+      <nav class="bottom__nav">
+        <div class="bottom__nav-container">
+          <img src="./assets/Python-Logo.svg" alt="Python Logo" />
+          <div class="nav__search">
+            <button id="donate__btn">Donate</button>
+            <div class="search-box">
+              <i class="bx bx-search-alt-2"></i>
+              <input type="text" placeholder="Search" />
+              <button id="search__btn" type="submit">GO</button>
+              <div class="dropdown">
+                <h4>Socialize</h4>
+                <ul class="dropdown-content">
+                  <li>
+                    <a href="#"
+                      ><i class="bx bxl-linkedin-square"></i>LinkedIn</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"><i class="bx bxl-mastodon"></i>Mastodon</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="bx bxs-conversation"></i>Chat on IRC</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"><i class="bx bxl-twitter"></i>Twitter</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main__nav">
+          <ul class="main__nav-elements">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">Documentacion</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Events</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="hero__container">
+        <div class="terminal">
+          <div class="terminal-body">
+            <pre>          
+              # For  loop  on  a  list
+              <span class="prompt">
+              >>>  numbers  =  [2,  4,  6,  8]
+              >>>  product  =  1
+              >>>  for  number  in  numbers:
+              ...     product  =  product   * number
+              ... 
+              >>>  print('The  product  is:',  product)</span> 
+              The  product  is:  384
+           </pre>
+          </div>
+        </div>
+        <div class="text__section">
+          <h2>All the Flow You’d Expect</h2>
+          <p>
+            Python knows the usual control flow statements that other languages
+            speak — <span class="prompt">if</span>,
+            <span class="prompt">for</span>,
+            <span class="prompt">while</span> and
+            <span class="prompt">range</span> — with some of its own twists, of
+            course.
+
+            <a id="text__section-link" href=""
+              >More control flow tools in Python 3</a
+            >
+          </p>
+          <div class="pagination">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+          </div>
+        </div>
+      </div>
+      <h2>
+        Python is a programming language that lets you work quickly <br />and
+        integrate systems more effectively.<span class="learn__more"
+          ><i class="bx bxs-chevrons-right"></i>Learn More</span
+        >
+      </h2>
+      <article class="general__infos-section">
+        <div class="get__started">
+          <h2 class="head-text"><i class="bx bx-power-off"></i>Get Started</h2>
+          <p>
+            Whether you're new to programming or an experienced developer, it's
+            easy to learn and use Python.
+          </p>
+          <br />
+          <a href="#">Start with our Beginner’s Guide</a>
+        </div>
+        <div class="download">
+          <h2 class="head-text"><i class="bx bx-download"></i>Download</h2>
+          <p>
+            Python source code and installers are available for download for all
+            versions!
+          </p>
+          <br />
+          <p>Latest:<a href="#">Python 3.12.4</a></p>
+        </div>
+        <div class="docs">
+          <h2 class="head-text"><i class="bx bxs-book-open"></i>Docs</h2>
+          <p>
+            Documentation for Python's standard library, along with tutorials
+            and guides, are available online.
+          </p>
+          <br />
+          <a href="#">docs.python.org</a>
+        </div>
+        <div class="jobs">
+          <h2 class="head-text"><i class="bx bxs-briefcase"></i>Jobs</h2>
+          <p>
+            Looking for work or have a Python related position that you're
+            trying to hire for? Our
+            <strong>relaunched community-run job board</strong> is the place to
+            go.
+          </p>
+          <br />
+          <a href="#">jobs.python.org</a>
+        </div>
+      </article>
+      <article class="news__events-section">
+        <div class="latest__news">
+          <div class="latest__news-head">
+            <h2 class="head-text"><i class="bx bx-news"></i>Latest News</h2>
+            <a class="more__link" href="#"
+              ><i class="bx bxs-chevrons-right more-arrow"></i>More</a
+            >
+          </div>
+          <table class="news__events-table">
+            <tbody>
+              <tr>
+                <td>2024-07-26</td>
+                <td>
+                  <a href="#"
+                    >Notice of Python Software Foundation Bylaws change,
+                    effective 10 August 2024</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>2024-07-26</td>
+                <td>
+                  <a href="#"
+                    >Python’s Supportive and Welcoming Environment is Tightly
+                    Coupled to Its Progress</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>2024-07-18</td>
+                <td>
+                  <a href="#"
+                    >PSF Board update on improvements to the PSF Grants
+                    program</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>2024-07-18</td>
+                <td>
+                  <a href="#">Python 3.13.0 beta 4 released</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2024-07-17</td>
+                <td>
+                  <a href="#"
+                    >Announcing the 2024 PSF Board Election & Proposed Bylaw
+                    Change Results!</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="upcoming__events">
+          <div class="upcoming__events-head">
+            <h2 class="head-text">
+              <i class="bx bx-calendar"></i>Upcoming Events
+            </h2>
+            <a class="more__link" href="#"
+              ><i class="bx bxs-chevrons-right more-arrow"></i>More</a
+            >
+          </div>
+          <table class="news__events-table">
+            <tbody>
+              <tr>
+                <td>2024-08-03</td>
+                <td>
+                  <a href="#">Django Girls Ecuador 2024</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2024-08-09</td>
+                <td>
+                  <a href="#">Python Nordeste 2024</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2024-08-10</td>
+                <td>
+                  <a href="#">Python Communities - South West Region</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2024-08-12</td>
+                <td>
+                  <a href="#">Python Community Building and Training event</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2024-08-16</td>
+                <td>
+                  <a href="#"
+                    >SheDevelopers: Python Mastery Workshop 1st Edition</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+      <article class="stories__use-section">
+        <div class="success__stories">
+          <div class="success__stories-head">
+            <h2 class="head-text">
+              <i class="bx bxs-certification"></i>Success Stories
+            </h2>
+            <a class="more__link" href="#"
+              ><i class="bx bxs-chevrons-right more-arrow"></i>More</a
+            >
+          </div>
+          <div class="quote-box">
+            <a href="#"
+              >Prioritizing cutting-edge speed and supporting the rapid growth
+              of Hudson River Trading’s codebase can have unintended effects
+              that require innovative solutions. For those working on our Python
+              codebase, this means addressing “code tangling,” the coupling of
+              unrelated code through unintuitive import cycles. In this article,
+              George Farcasiu, Noah Kim, Jacob Brugh, and Jiahao Li discuss how
+              they mitigate the cost and time burden of this issue by creating
+              new tools to analyze and untangle dependencies efficiently.</a
+            >
+          </div>
+          <div class="python__scripts">
+            <a href="#">
+              Building a Dependency Graph of Our Python Codebase<span>
+                by George Farcasiu, Noah Kim, Jacon Brugh, Jiahao Li</span
+              ></a
+            >
+          </div>
+        </div>
+        <div class="python__use">
+          <div class="python__use-head">
+            <h2 class="head-text">
+              <i class="bx bxl-python"></i>Use Python for...
+            </h2>
+            <a class="more__link" href="#"
+              ><i class="bx bxs-chevrons-right more-arrow"></i>More</a
+            >
+          </div>
+          <table class="python__use-table">
+            <tbody>
+              <tr>
+                <td>
+                  Web Development:
+                  <button>
+                    <a href="https://www.djangoproject.com/">Django</a></button
+                  >,
+                  <button>
+                    <a href="https://www.pylonsproject.org/">Pyramid</a></button
+                  >,
+                  <button>
+                    <a href="https://bottlepy.org/docs/dev/">Bottle</a></button
+                  >,
+                  <button>
+                    <a href="https://www.tornadoweb.org/en/stable/"
+                      >Tornado</a
+                    ></button
+                  >,
+                  <button>
+                    <a href="https://flask.palletsprojects.com/en/3.0.x/"
+                      >Flask</a
+                    ></button
+                  >,
+                  <button>
+                    <a href="http://www.web2py.com/">web2py</a>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  GUI Development:
+                  <button>
+                    <a href="http://wiki.python.org/moin/TkInter"
+                      >tkInter</a
+                    ></button
+                  >,
+                  <button>
+                    <a href="https://wiki.gnome.org/Projects/PyGObject"
+                      >PyGObject</a
+                    ></button
+                  >,
+                  <button>
+                    <a
+                      href="http://www.riverbankcomputing.co.uk/software/pyqt/intro"
+                      >PyQt</a
+                    ></button
+                  >,
+                  <button>
+                    <a href="https://wiki.qt.io/PySide">PySide</a></button
+                  >,
+                  <button>
+                    <a href="https://kivy.org/">Kivy</a></button
+                  >,
+                  <button>
+                    <a href="http://www.wxpython.org/">wxPython</a></button
+                  >,
+                  <button>
+                    <a href="https://dearpygui.readthedocs.io/en/latest/"
+                      >DearPyGui</a
+                    >
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Scientific and Numeric:
+                  <button>
+                    <a href="http://www.scipy.org/">SciPy</a></button
+                  >,
+                  <button>
+                    <a href="http://pandas.pydata.org/">Pandas</a></button
+                  >,
+                  <button>
+                    <a href="http://ipython.org/">IPython</a>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Software Development:
+                  <button>
+                    <a href="http://buildbot.net/">Buildbot</a></button
+                  >,
+                  <button>
+                    <a href="http://trac.edgewall.org/">Trac</a></button
+                  >,
+                  <button>
+                    <a href="http://roundup.sourceforge.net/">Roundup</a>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  System Administration:
+                  <button>
+                    <a href="http://www.ansible.com/">Ansible</a></button
+                  >,
+                  <button>
+                    <a href="https://saltproject.io/">Salt</a></button
+                  >,
+                  <button>
+                    <a href="https://www.openstack.org/">OpenStack</a></button
+                  >,
+                  <button>
+                    <a href="https://xon.sh/">xonsh</a>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+      <article class="python__future">
+        <div class="python__ft">
+          <div>
+            <i class="bx bx-chevrons-right"></i>
+            <a href="#"
+              >Python Enhancement Proposals:<span>The future of Python</span></a
+            >
+          </div>
+
+          <a href="#"><i class="bx bx-rss"></i>&nbsp;&nbsp;RSS</a>
+        </div>
+      </article>
+      <article class="python__foundation">
+        <div class="psf">
+          <div>
+            <div class="psf__header">
+              <i class="bx bx-chevrons-right psf-arrow"></i>
+              <a id="psf-head" href="#">Python Software Foundation</a>
+            </div>
+
+            <p>
+              The mission of the Python Software Foundation is to promote,
+              protect, and advance the Python programming language, and to
+              support and facilitate the growth of a diverse and international
+              community of Python programmers.
+              <span
+                ><i class="bx bx-chevrons-right"></i
+                ><a href="#">Learn More</a></span
+              >
+            </p>
+            <div class="psf__btn">
+              <button><a href="#">Become a Member</a></button>
+              <button><a href="#">Donate to the PSF</a></button>
+            </div>
+          </div>
+          <img src="./assets/python-logo-only.png" alt="" />
+        </div>
+      </article>
+    </main>
+    <footer>
+      <div class="footer__container">
+        <div class="category">
+          <h3>About</h3>
+          <ul>
+            <li><a href="#">Applicatons</a></li>
+            <li><a href="#">Quotes</a></li>
+            <li><a href="#">Getting Started</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">PyhtonBrochure</a></li>
+          </ul>
+          <div class="category cat">
+            <h3>Events</h3>
+            <ul>
+              <li><a href="#">Python Events</a></li>
+              <li><a href="#">User Group Events</a></li>
+              <li><a href="#">Python Events Archive</a></li>
+              <li><a href="#">User Group Events Archive</a></li>
+              <li><a href="#">Submit an Event</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="category">
+          <h3>Downloads</h3>
+          <ul>
+            <li><a href="#">All releases</a></li>
+            <li><a href="#">Source code</a></li>
+            <li><a href="#">Windows</a></li>
+            <li><a href="#">macOS</a></li>
+            <li><a href="#">Other Platforms</a></li>
+            <li><a href="#">License</a></li>
+            <li><a href="#">Alternative Implementations</a></li>
+          </ul>
+        </div>
+        <div class="category">
+          <h3>Documentation</h3>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Audio/Visual Talks</a></li>
+            <li><a href="#">Beginner's Guide</a></li>
+            <li><a href="#">Developer's Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Non-English Docs</a></li>
+            <li><a href="#">PEP Index</a></li>
+            <li><a href="#">Pythin Books</a></li>
+            <li><a href="#">Python Essays</a></li>
+          </ul>
+        </div>
+        <div class="category">
+          <h3>Community</h3>
+          <ul>
+            <li><a href="#">Diversity</a></li>
+            <li><a href="#">Mailing Lists</a></li>
+            <li><a href="#">IRC</a></li>
+            <li><a href="#">Forums</a></li>
+            <li><a href="#">PSF Annual Impact Report</a></li>
+            <li><a href="#">Python Conferences</a></li>
+            <li><a href="#">Special Interest Groups</a></li>
+            <li><a href="#">Python Logo</a></li>
+            <li><a href="#">Python Wiki</a></li>
+            <li><a href="#">Code of Conduct</a></li>
+            <li><a href="#">Community Awards</a></li>
+            <li><a href="#">Get Involved</a></li>
+            <li><a href="#">Shared Stories</a></li>
+          </ul>
+        </div>
+        <div class="category">
+          <h3>Success Stories</h3>
+          <ul>
+            <li><a href="#">Arts</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Engineering</a></li>
+            <li><a href="#">Government</a></li>
+            <li><a href="#">Scientific</a></li>
+            <li><a href="#">Software Development</a></li>
+          </ul>
+        </div>
+        <div class="category">
+          <h3>News</h3>
+          <ul>
+            <li><a href="#">Pyhin News</a></li>
+            <li><a href="#">PSF Newsletter</a></li>
+            <li><a href="#">PSF News</a></li>
+            <li><a href="#">PyCon US News</a></li>
+            <li><a href="#">News from the Community</a></li>
+          </ul>
+          <div class="category cat">
+            <h3>Contributing</h3>
+            <ul>
+              <li><a href="#">Developer's Guide</a></li>
+              <li><a href="#">Issue Tracker</a></li>
+              <li><a href="#">python-dev list</a></li>
+              <li><a href="#">Core Mentorship</a></li>
+              <li><a href="#">Report a Security Issue</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <ul class="main__ul">
+          <li><a href="#">Help & General Contact</a></li>
+          <li><a href="#">Diversity Initiatives</a></li>
+          <li><a href="#">Submit Website Bug</a></li>
+          <li>
+            <a href="#">Status <i class="bx bxs-circle"></i></a>
+          </li>
+        </ul>
+        <ul class="sec__ul">
+          <li>Copyright ©2001-2024.</li>
+          <li><a href="#">Python Software Foundation</a></li>
+          <li><a href="#">Legal Statements</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
