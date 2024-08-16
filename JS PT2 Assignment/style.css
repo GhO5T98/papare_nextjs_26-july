@@ -1,0 +1,942 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+[data-theme=light] {
+  --background-color: #eaeaea;
+  --primary-color: #3c3c3c;
+  --sec-color: #393e46;
+  --nav-border: #393e46;
+  --text-color: #f4f4f4;
+  --login-btn: #191919;
+  --card-background: #848484;
+  --poll-background: linear-gradient(to left bottom, #002d77, #0f336c, #1f3860, #2d3b53, #393e46);
+  --poll-background-hover: linear-gradient(to top, #002d77, #0f336c, #1f3860, #2d3b53, #393e46);
+  --main-cols: #f4f4f4;
+}
+
+[data-theme=dark] {
+  --background-color: #191919;
+  --primary-color: #2e2e2e;
+  --sec-color: #f75708;
+  --nav-border: #f75708;
+  --text-color: #f4f4f4;
+  --login-btn: #f4f4f4;
+  --card-background: #2e2e2e;
+  --poll-background: linear-gradient(to top, #f75708, #e94705, #db3602, #cc2201, #be0000);
+  --poll-background-hover: linear-gradient(to left bottom, #f75708, #cd2d49, #8a2b59, #452946, #191919);
+  --main-cols: #f75708;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: var(--primary-color);
+  border-bottom: 4px solid var(--nav-border);
+  z-index: 1002;
+}
+header div {
+  flex: 1;
+}
+header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .logo img {
+  height: 35px;
+  margin-right: 10px;
+}
+header .logo span {
+  display: none;
+}
+header .large__nav {
+  display: none;
+}
+header .mobile__nav {
+  position: fixed;
+  top: 3.8em;
+  left: -50%;
+  width: 50%;
+  height: 100vh;
+  background-color: var(--primary-color);
+  transition: left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+}
+header .mobile__nav .navbar {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5em;
+}
+header .mobile__nav .navbar li {
+  position: relative;
+}
+header .mobile__nav .navbar a {
+  text-decoration: none;
+  color: var(--text-color);
+  position: relative;
+  padding: 5px 15px;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  font-style: italic;
+}
+header .mobile__nav .navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0.7em;
+  bottom: 0;
+  width: 0;
+  height: 5px;
+  background-color: var(--sec-color);
+  transition: width 0.3s ease;
+}
+header .mobile__nav .navbar a:hover::after {
+  width: 100%;
+}
+header .mobile__nav.open {
+  left: 0;
+}
+header .hamburger {
+  cursor: pointer;
+  font-size: 1.5em;
+  z-index: 1001;
+}
+header .hamburger {
+  cursor: pointer;
+}
+header .hamburger i {
+  font-size: 27px;
+  color: var(--main-cols);
+}
+header .nav__btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+}
+header .nav__btn .login-button {
+  display: none;
+}
+header .nav__btn button {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--main-cols);
+  border: none;
+}
+header .nav__btn button i {
+  font-size: 20px;
+}
+header .nav__btn .bx-user-circle {
+  font-size: 35px;
+  color: var(--main-cols);
+}
+
+main {
+  padding: 0 10px;
+  margin-top: 4em;
+}
+main .hero__section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 15px 7px;
+}
+main .hero__section .hero__card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+main .hero__section .hero__card .card-image {
+  width: 100%;
+  display: block;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s ease;
+}
+main .hero__section .hero__card:hover .card-image {
+  transform: scale(1.1);
+}
+main .hero__section .hero__card .card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--text-color);
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+main .hero__section .hero__card .card-content .card-title {
+  font-size: 28px;
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 25px;
+  font-weight: 800;
+}
+main .hero__section .hero__card .card-content .card-subtitle {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  color: #f75708;
+}
+main .news__events-section {
+  display: flex;
+  flex-direction: column;
+}
+main .news__events-section .featured__news-section {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 7px;
+  gap: 30px;
+}
+main .news__events-section .featured__news-section h1 {
+  color: var(--sec-color);
+  font-size: 28px;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+main .news__events-section .featured__news-section .featured__news-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+main .news__events-section .featured__news-section .featured__news-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: var(--card-background);
+}
+main .news__events-section .featured__news-section .featured__news-card:hover {
+  background-color: #3d3d3d;
+}
+main .news__events-section .featured__news-section .featured__news-card .ftnews__card-image {
+  width: 100%;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content .ftnews__card-date {
+  font-size: 12px;
+  color: var(--text-color);
+}
+main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content .ftnews__card-title {
+  font-size: 20px;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 18px;
+  color: var(--text-color);
+}
+main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content .ftnews__card-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--sec-color);
+}
+main .news__events-section aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 15px 7px;
+  gap: 30px;
+}
+main .news__events-section aside h1 {
+  font-size: 28px;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  color: var(--sec-color);
+}
+main .news__events-section aside .upcoming__event,
+main .news__events-section aside .finished__event {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  background-color: var(--card-background);
+  padding: 15px;
+  border-radius: 5px;
+}
+main .news__events-section aside .upcoming__event:hover,
+main .news__events-section aside .finished__event:hover {
+  background-color: #3d3d3d;
+}
+main .news__events-section aside .upcoming__event .event__name div,
+main .news__events-section aside .finished__event .event__name div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .news__events-section aside .upcoming__event .event__name div h2,
+main .news__events-section aside .finished__event .event__name div h2 {
+  color: var(--sec-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+main .news__events-section aside .upcoming__event .event__name div button,
+main .news__events-section aside .finished__event .event__name div button {
+  display: block;
+  padding: 2px 10px;
+  cursor: pointer;
+  background-color: var(--sec-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+}
+main .news__events-section aside .upcoming__event .event__name p,
+main .news__events-section aside .finished__event .event__name p {
+  color: var(--text-color);
+  font-size: 14px;
+}
+main .news__events-section aside .upcoming__event .teams__logo,
+main .news__events-section aside .finished__event .teams__logo {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
+main .news__events-section aside .upcoming__event .teams__logo .team__logo-img,
+main .news__events-section aside .finished__event .teams__logo .team__logo-img {
+  width: 20px;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+main .news__events-section aside .upcoming__event .event__games,
+main .news__events-section aside .finished__event .event__games {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info,
+main .news__events-section aside .finished__event .event__games .match__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .match__date,
+main .news__events-section aside .finished__event .event__games .match__info .match__date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .match__date span,
+main .news__events-section aside .finished__event .event__games .match__info .match__date span {
+  font-size: 12px;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result,
+main .news__events-section aside .finished__event .event__games .match__info .game__result {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 0.6em;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .team,
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .score,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .team,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .score {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .team,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .team {
+  gap: 0.5em;
+  max-width: 40%;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .team.team-home,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .team.team-home {
+  justify-content: flex-end;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .team.team-away,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .team.team-away {
+  justify-content: flex-start;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .team .event__team-name,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .team .event__team-name {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 500;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .team .event__team-logo,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .team .event__team-logo {
+  height: 2rem;
+  width: 2rem;
+}
+main .news__events-section aside .upcoming__event .event__games .match__info .game__result .score,
+main .news__events-section aside .finished__event .event__games .match__info .game__result .score {
+  font-size: 14px;
+  color: var(--text-color);
+  font-weight: 500;
+  text-align: center;
+  justify-content: center;
+  background-color: #555;
+  max-width: 15%;
+  border-radius: 2px;
+}
+main .poll__section .poll__head {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 1em;
+}
+main .poll__section .poll__head h3 {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--sec-color);
+}
+main .poll__section .poll__head h3:nth-of-type(2) {
+  color: #fff;
+  font-size: 14px;
+}
+main .poll__section .poll__head h1 {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 38px;
+  margin: 0.7em 0;
+  padding: 0 10px;
+}
+main .poll__section .poll__candidates {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 15px 7px;
+}
+main .poll__section .poll__candidates .player__vote {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  background-image: var(--poll-background);
+  border-radius: 5px;
+  color: #fff;
+}
+main .poll__section .poll__candidates .player__vote:hover {
+  background-image: var(--poll-background-hover);
+}
+main .poll__section .poll__candidates .player__vote:nth-child(2) {
+  height: 100px;
+}
+main .poll__section .poll__candidates .player__vote .vote__percentage {
+  background-color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #321a4d;
+  font-size: 1em;
+}
+main .poll__section .poll__candidates .player__vote .player__name {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+main .poll__section .poll__candidates .player__vote .player__team img {
+  width: 40px;
+  height: 40px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4em;
+  margin-top: 3em;
+}
+footer .footer__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--sec-color);
+  padding: 10px;
+}
+footer .footer__section img {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+footer .footer__section a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+footer .footer__section a:hover {
+  color: var(--sec-color);
+}
+footer .footer__section .social__media-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 3em;
+  margin-top: 1em;
+}
+footer .footer__section .social__media-links i {
+  font-size: 28px;
+}
+footer .footer__section .social__media-links i:hover {
+  color: var(--sec-color);
+}
+footer h5 {
+  font-size: 12px;
+  color: #555;
+}
+footer h5:hover {
+  color: var(--sec-color);
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  main {
+    padding: 0 15px;
+  }
+  main .hero__section {
+    gap: 30px;
+  }
+  main .hero__section .hero__card .card-image {
+    height: 250px;
+  }
+  main .hero__section .hero__card .card-content {
+    padding: 10px 20px;
+  }
+  main .hero__section .hero__card .card-content .card-title {
+    font-size: 40px;
+    line-height: 35px;
+  }
+  main .hero__section .hero__card .card-content .card-subtitle {
+    font-size: 20px;
+  }
+  main .news__events-section .featured__news-section .featured__news-gallery {
+    gap: 20px;
+  }
+  main .news__events-section aside .upcoming__event .teams__logo .team__logo-img,
+  main .news__events-section aside .finished__event .teams__logo .team__logo-img {
+    width: 30px;
+    height: 100%;
+  }
+  footer .footer__section {
+    padding: 20px 10px;
+    gap: 1em;
+  }
+  footer .footer__section img {
+    width: 40px;
+    height: 40px;
+    -o-object-fit: fill;
+       object-fit: fill;
+  }
+  footer .footer__section a {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  header {
+    padding: 8px 25px;
+  }
+  header .logo span {
+    display: block;
+    color: var(--sec-color);
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    font-style: italic;
+  }
+  header .mobile__nav .navbar {
+    margin-left: 0.5em;
+  }
+  main {
+    padding: 0 25px;
+    margin-top: 4.5em;
+  }
+  main .hero__section {
+    gap: 30px;
+  }
+  main .hero__section .hero__card .card-image {
+    height: 300px;
+  }
+  main .hero__section .hero__card .card-content {
+    padding: 25px;
+  }
+  main .hero__section .hero__card .card-content .card-title {
+    font-size: 40px;
+    line-height: 38px;
+  }
+  main .hero__section .hero__card .card-content .card-subtitle {
+    font-size: 20px;
+  }
+  main .news__events-section .featured__news-section .featured__news-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+  main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content .ftnews__card-date {
+    font-size: 14px;
+  }
+  main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content .ftnews__card-title {
+    font-size: 28px;
+    line-height: 24px;
+  }
+  main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content .ftnews__card-subtitle {
+    font-size: 20px;
+  }
+  main .news__events-section aside .upcoming__event .event__name div h2,
+  main .news__events-section aside .finished__event .event__name div h2 {
+    font-size: 28px;
+  }
+  main .news__events-section aside .upcoming__event .event__name div button,
+  main .news__events-section aside .finished__event .event__name div button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  main .news__events-section aside .upcoming__event .event__name p,
+  main .news__events-section aside .finished__event .event__name p {
+    font-size: 20px;
+  }
+  main .news__events-section aside .upcoming__event .teams__logo .team__logo-img,
+  main .news__events-section aside .finished__event .teams__logo .team__logo-img {
+    width: 40px;
+  }
+  main .news__events-section aside .upcoming__event .event__games .match__info .match__date h5,
+  main .news__events-section aside .finished__event .event__games .match__info .match__date h5 {
+    font-size: 20px;
+  }
+  main .news__events-section aside .upcoming__event .event__games .match__info .match__date span,
+  main .news__events-section aside .finished__event .event__games .match__info .match__date span {
+    font-size: 20px;
+  }
+  main .news__events-section aside .upcoming__event .event__games .match__info .game__result,
+  main .news__events-section aside .finished__event .event__games .match__info .game__result {
+    padding: 20px 10px;
+    gap: 1em;
+  }
+  main .news__events-section aside .upcoming__event .event__games .match__info .game__result .team .event__team-name,
+  main .news__events-section aside .finished__event .event__games .match__info .game__result .team .event__team-name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  main .news__events-section aside .upcoming__event .event__games .match__info .game__result .score,
+  main .news__events-section aside .finished__event .event__games .match__info .game__result .score {
+    font-size: 20px;
+  }
+  main .poll__section .poll__candidates .player__vote .player__name {
+    font-size: 28px;
+  }
+  footer {
+    padding: 0 3em;
+  }
+  footer .footer__section {
+    flex-direction: row;
+    gap: 1.5em;
+  }
+  footer .footer__section img {
+    width: 40px;
+    height: 40px;
+  }
+  footer .footer__section a {
+    font-size: 20px;
+  }
+  footer .footer__section .social__media-links {
+    display: none;
+  }
+  footer h5 {
+    font-size: 14px;
+  }
+}
+@media (min-width: 992px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 30px;
+    background-color: var(--primary-color);
+    border-bottom: 4px solid var(--nav-border);
+  }
+  header #hamburger__div {
+    display: none;
+  }
+  header .logo {
+    display: flex;
+    justify-content: flex-start;
+  }
+  header .logo span {
+    display: block;
+    color: var(--main-cols);
+    font-size: 28px;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+  header .mobile__nav {
+    display: none;
+  }
+  header .large__nav {
+    display: block;
+  }
+  header .large__nav .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+  }
+  header .large__nav .navbar li {
+    list-style: none;
+    position: relative;
+  }
+  header .large__nav .navbar a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-color);
+    display: inline-block;
+    position: relative;
+    padding: 5px 0;
+  }
+  header .large__nav .navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: var(--sec-color);
+    transition: width 0.3s ease;
+  }
+  header .large__nav .navbar a:hover::after {
+    width: 100%;
+  }
+  header .nav__btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5em;
+  }
+  header .nav__btn .login-button {
+    display: block;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: var(--main-cols);
+    color: var(--login-btn);
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  header .nav__btn button {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--main-cols);
+    border: none;
+  }
+  header .nav__btn button i {
+    font-size: 20px;
+  }
+  header .nav__btn .bx-user-circle {
+    display: none;
+  }
+  main {
+    padding: 0 35px;
+    margin-top: 5em;
+  }
+  main .hero__section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  main .hero__section .hero__card .card-image {
+    height: 300px;
+  }
+  main .hero__section .hero__card .card-content {
+    padding: 20px 10px;
+  }
+  main .hero__section .hero__card .card-content .card-title {
+    font-size: 35px;
+    line-height: 33px;
+  }
+  main .hero__section .hero__card .card-content .card-subtitle {
+    font-size: 20px;
+  }
+  main .news__events-section {
+    display: grid;
+    grid-template-columns: 66.5% 33%;
+    gap: 7px;
+  }
+  main .news__events-section .featured__news-section {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 7px;
+    gap: 30px;
+  }
+  main .news__events-section .featured__news-section h1 {
+    color: var(--sec-color);
+    font-size: 28px;
+    font-weight: 800;
+    font-style: italic;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+  main .news__events-section .featured__news-section .featured__news-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  main .news__events-section .featured__news-section .featured__news-card {
+    margin-bottom: 0.5em;
+  }
+  main .news__events-section .featured__news-section .featured__news-card .ftnews__card-content {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    cursor: pointer;
+  }
+  main .news__events-section aside .upcoming__event,
+  main .news__events-section aside .finished__event {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    cursor: pointer;
+  }
+  main .poll__section {
+    width: 66.5%;
+    margin-top: 0;
+  }
+  main .poll__section .poll__head {
+    padding: 0 10px;
+    margin-top: 0;
+  }
+  main .poll__section .poll__candidates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 15px 8px;
+  }
+  main .poll__section .poll__candidates .player__vote {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+    padding: 0.5em 1em;
+    background-image: var(--poll-background);
+    border-radius: 5px;
+    color: #fff;
+    width: 120px;
+  }
+  main .poll__section .poll__candidates .player__vote:hover {
+    background-image: var(--poll-background-hover);
+  }
+  main .poll__section .poll__candidates .player__vote:nth-child(2) {
+    width: 250px;
+    height: auto;
+  }
+  main .poll__section .poll__candidates .player__vote .player__name {
+    display: flex;
+    align-items: center;
+  }
+  main .poll__section .poll__candidates .player__vote .player__name h4 {
+    flex-grow: 1;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 28px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  main .poll__section .poll__candidates .player__vote:nth-child(2) .player__name h4 {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  footer .footer__section {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+    border-bottom: 1px solid var(--sec-color);
+    padding: 10px;
+    margin-top: 2em;
+  }
+  footer .footer__section img {
+    width: 40px;
+    height: 40px;
+    -o-object-fit: fill;
+       object-fit: fill;
+  }
+  footer h5 {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=style.css.map */

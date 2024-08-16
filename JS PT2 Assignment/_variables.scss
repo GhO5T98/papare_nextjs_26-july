@@ -1,0 +1,85 @@
+// Light Theme Colors
+$light-background-color: #eaeaea;
+$light-first-color: #3c3c3c;
+$light-sec-color: #393e46;
+$light-third-color: #f7f7f7;
+$light-text-color: #f4f4f4;
+$light-nav-border-color: #393e46;
+$light-login-btn-text: #191919;
+$light-main-cols: #f4f4f4;
+$light-card-background: #848484;
+$light-poll-background: linear-gradient(
+  to left bottom,
+  #002d77,
+  #0f336c,
+  #1f3860,
+  #2d3b53,
+  #393e46
+);
+$light-poll-background-hover: linear-gradient(
+  to top,
+  #002d77,
+  #0f336c,
+  #1f3860,
+  #2d3b53,
+  #393e46
+);
+// Light Theme Colors
+
+// Dark Theme Colors
+$dark-background-color: #191919;
+$dark-first-color: #2e2e2e;
+$dark-sec-color: #f75708;
+$dark-third-color: #393e46;
+$dark-fourth-color: #555;
+$dark-text-color: #f4f4f4;
+$dark-nav-border-color: #f75708;
+$dark-login-btn-text: #f4f4f4;
+$dark-main-cols: #f75708;
+$dark-card-background: #2e2e2e;
+$dark-poll-background: linear-gradient(
+  to top,
+  #f75708,
+  #e94705,
+  #db3602,
+  #cc2201,
+  #be0000
+);
+$dark-poll-background-hover: linear-gradient(
+  to left bottom,
+  #f75708,
+  #cd2d49,
+  #8a2b59,
+  #452946,
+  #191919
+);
+// Dark Theme Colors
+
+// Space //
+$sm-space: 0.5em;
+$m-space: 1em;
+$lg-space: 3em;
+// Space //
+
+// Font Variables//
+$xs-font: 12px;
+$sm-font: 14px;
+$m-font: 20px;
+$lg-font: 28px;
+$xl-font: 40px;
+
+@mixin header-text {
+  font-size: $lg-font;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+@mixin nav-text {
+  font-size: $m-font;
+  font-weight: 800;
+  text-transform: uppercase;
+  user-select: none;
+  font-style: italic;
+}
