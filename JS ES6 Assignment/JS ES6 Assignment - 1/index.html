@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Assignment</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="atm__container">
+      <form>
+        <div class="container">
+          <label for="id"></label>
+          <input
+            type="text"
+            placeholder="Enter Your ID"
+            name="id"
+            id="userId"
+            required
+          />
+          <button type="button" class="atm__btn" id="logInBtn">Log In</button>
+          <h2 id="welcomeMessage" class="hidden"></h2>
+
+          <button type="button" class="atm__btn hidden" id="checkBalanceBtn">
+            Check Balance
+          </button>
+          <h2 id="balanceDisplay" class="hidden"></h2>
+          <br />
+          <label for="amount"></label>
+          <input
+            type="text"
+            placeholder="Enter amount to withdraw"
+            name="amount"
+            id="withdrawAmount"
+            required
+            class="hidden"
+          />
+          <button type="button" class="atm__btn hidden" id="withdrawBtn">
+            Withdraw
+          </button>
+          <div class="st__container">
+            <div class="stack" style="--stacks: 3">
+              <span style="--index: 0">PAPARE ATM</span>
+              <span style="--index: 1">PAPARE ATM</span>
+              <span style="--index: 2">PAPARE ATM</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      //Users Objects//
+      const users = [
+        { id: 1, name: "Elon Musk", balance: 219000000000 },
+        { id: 2, name: "Jeff Bezos", balance: 177000000000 },
+        { id: 3, name: "Bernard Arnault", balance: 158000000000 },
+      ];
+      //Users Objects//
+
+      let currentUser = null;
+
+      const displayElement = (id, show) => {
+        document.getElementById(id).classList.toggle("hidden", !show);
+      };
+
+      //Main Function//
+      const withdraw = (person, amount) => {
+        if (amount > person.balance) {
+          const failMessage = `Withdrawal cannot be processed due to insufficient funds.`;
+          alert(failMessage);
+          console.log(failMessage);
+        } else {
+          person.balance -= amount;
+          const successMessage = `Withdrawal of $${amount} processed. New balance is $${person.balance}.`;
+          alert(successMessage);
+          console.log(successMessage);
+        }
+      };
+      //Main Function //
+
+      const displayBalance = () => {
+        if (currentUser) {
+          document.getElementById(
+            "balanceDisplay"
+          ).textContent = `Your Balance Is: $${currentUser.balance}`;
+          displayElement("balanceDisplay", true);
+          displayElement("withdrawAmount", true);
+          displayElement("withdrawBtn", true);
+          displayElement("checkBalanceBtn", false);
+        } else {
+          console.log("No user selected.");
+        }
+      };
+
+      const handleWithdraw = () => {
+        if (currentUser) {
+          const withdrawAmount = parseFloat(
+            document.getElementById("withdrawAmount").value
+          );
+          if (!isNaN(withdrawAmount) && withdrawAmount > 0) {
+            withdraw(currentUser, withdrawAmount);
+            displayBalance();
+          } else {
+            alert("Please enter a valid amount to withdraw.");
+          }
+        } else {
+          console.log("No user selected.");
+        }
+      };
+
+      const handleLogIn = (event) => {
+        event.preventDefault();
+        const userId = parseInt(document.getElementById("userId").value);
+        currentUser = users.find((user) => user.id === userId);
+        const welcomeMessage = document.getElementById("welcomeMessage");
+        if (currentUser) {
+          welcomeMessage.textContent = `Welcome, ${currentUser.name}!`;
+          displayElement("welcomeMessage", true);
+          displayElement("checkBalanceBtn", true);
+          displayElement("logInBtn", false);
+          displayElement("userId", false);
+        } else {
+          welcomeMessage.textContent = "User not found.";
+          displayElement("welcomeMessage", true);
+        }
+      };
+
+      document
+        .getElementById("logInBtn")
+        .addEventListener("click", handleLogIn);
+      document
+        .getElementById("checkBalanceBtn")
+        .addEventListener("click", displayBalance);
+      document
+        .getElementById("withdrawBtn")
+        .addEventListener("click", handleWithdraw);
+    </script>
+  </body>
+</html>
