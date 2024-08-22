@@ -1,3 +1,4 @@
 - RENALD HOXHA 
 - Detyra 1: HTML + CSS
 - Detyra 2: JavaScript Pt1
+- Detyra 3:JavaScript Pt2
