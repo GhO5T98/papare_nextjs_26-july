@@ -2,3 +2,4 @@
 - Detyra 1: HTML + CSS
 - Detyra 2: JavaScript Pt1
 - Detyra 3:JavaScript Pt2
+- Detyra 4: JavaScript ES6 + React
