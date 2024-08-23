@@ -50,13 +50,13 @@
     </div>
 
     <script>
-      //Users Objects//
+      // Users Objects //
       const users = [
-        { id: 1, name: "Elon Musk", balance: 219000000000 },
-        { id: 2, name: "Jeff Bezos", balance: 177000000000 },
-        { id: 3, name: "Bernard Arnault", balance: 158000000000 },
+        { id: 1, name: "Elon Musk", balance: 219_000_000_000 },
+        { id: 2, name: "Jeff Bezos", balance: 177_000_000_000 },
+        { id: 3, name: "Bernard Arnault", balance: 158_000_000_000 },
       ];
-      //Users Objects//
+      // Users Objects //
 
       let currentUser = null;
 
@@ -64,66 +64,60 @@
         document.getElementById(id).classList.toggle("hidden", !show);
       };
 
-      //Main Function//
+      // Main Function //
       const withdraw = (person, amount) => {
-        if (amount > person.balance) {
-          const failMessage = `Withdrawal cannot be processed due to insufficient funds.`;
-          alert(failMessage);
-          console.log(failMessage);
-        } else {
-          person.balance -= amount;
-          const successMessage = `Withdrawal of $${amount} processed. New balance is $${person.balance}.`;
-          alert(successMessage);
-          console.log(successMessage);
-        }
+        amount > person.balance
+          ? alertAndLog(
+              "Withdrawal cannot be processed due to insufficient funds."
+            )
+          : alertAndLog(
+              `Withdrawal of $${amount} processed. New balance is $${(person.balance -=
+                amount)}.`
+            );
       };
-      //Main Function //
+
+      const alertAndLog = (message) => {
+        alert(message);
+        console.log(message);
+      };
+      // Main Function //
 
       const displayBalance = () => {
-        if (currentUser) {
-          document.getElementById(
-            "balanceDisplay"
-          ).textContent = `Your Balance Is: $${currentUser.balance}`;
-          displayElement("balanceDisplay", true);
-          displayElement("withdrawAmount", true);
-          displayElement("withdrawBtn", true);
-          displayElement("checkBalanceBtn", false);
-        } else {
-          console.log("No user selected.");
-        }
+        currentUser
+          ? (() => {
+              document.getElementById(
+                "balanceDisplay"
+              ).textContent = `Your Balance Is: $${currentUser.balance}`;
+              displayElement("balanceDisplay", true);
+              displayElement("withdrawAmount", true);
+              displayElement("withdrawBtn", true);
+              displayElement("checkBalanceBtn", false);
+            })()
+          : console.log("No user selected.");
       };
 
       const handleWithdraw = () => {
-        if (currentUser) {
-          const withdrawAmount = parseFloat(
-            document.getElementById("withdrawAmount").value
-          );
-          if (!isNaN(withdrawAmount) && withdrawAmount > 0) {
-            withdraw(currentUser, withdrawAmount);
-            displayBalance();
-          } else {
-            alert("Please enter a valid amount to withdraw.");
-          }
-        } else {
-          console.log("No user selected.");
-        }
+        const withdrawAmount = parseFloat(
+          document.getElementById("withdrawAmount").value
+        );
+        currentUser && !isNaN(withdrawAmount) && withdrawAmount > 0
+          ? (withdraw(currentUser, withdrawAmount), displayBalance())
+          : alert("Please enter a valid amount to withdraw.");
       };
 
       const handleLogIn = (event) => {
         event.preventDefault();
-        const userId = parseInt(document.getElementById("userId").value);
+        const userId = parseInt(document.getElementById("userId").value, 10);
         currentUser = users.find((user) => user.id === userId);
         const welcomeMessage = document.getElementById("welcomeMessage");
-        if (currentUser) {
-          welcomeMessage.textContent = `Welcome, ${currentUser.name}!`;
-          displayElement("welcomeMessage", true);
-          displayElement("checkBalanceBtn", true);
-          displayElement("logInBtn", false);
-          displayElement("userId", false);
-        } else {
-          welcomeMessage.textContent = "User not found.";
-          displayElement("welcomeMessage", true);
-        }
+        currentUser
+          ? ((welcomeMessage.textContent = `Welcome, ${currentUser.name}!`),
+            displayElement("welcomeMessage", true),
+            displayElement("checkBalanceBtn", true),
+            displayElement("logInBtn", false),
+            displayElement("userId", false))
+          : ((welcomeMessage.textContent = "User not found."),
+            displayElement("welcomeMessage", true));
       };
 
       document
