@@ -13,7 +13,6 @@ const EditBookModal = ({ open, handleClose, book, updateBook }) => {
     amazonUrl: "",
   });
 
-  // Populate form with current book data when modal opens
   useEffect(() => {
     if (book) {
       setEditedBook({
@@ -40,8 +39,8 @@ const EditBookModal = ({ open, handleClose, book, updateBook }) => {
 
   // Handle update book
   const handleUpdateBook = () => {
-    updateBook(editedBook); // Call the updateBook function passed as a prop
-    handleClose(); // Close the modal after update
+    updateBook(editedBook);
+    handleClose();
   };
 
   return (

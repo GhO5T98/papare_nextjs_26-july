@@ -24,8 +24,8 @@ const AddBookModal = ({ open, handleClose, addBook }) => {
 
   // Handle add book
   const handleAddBook = () => {
-    addBook(newBook); // Call the addBook function passed as a prop
-    handleClose(); // Close the modal after adding
+    addBook(newBook);
+    handleClose();
   };
 
   return (
